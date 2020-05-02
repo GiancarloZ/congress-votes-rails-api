@@ -1,3 +1,4 @@
+require 'pry'
 class Api::V1::MembersController < ApplicationController
    
     def index
@@ -7,7 +8,13 @@ class Api::V1::MembersController < ApplicationController
     end
 
     def create
-        @members = Member.create(member_params)
+        @members = Member.find_or_create_by(id.id: member_params["members"]["id"] )
+        # @members = member_params
+        # if !!@members
+        #     @members.map do |member|
+        #         Member.create(member)
+        #     end
+        # end
         render json: @members
     end
 
