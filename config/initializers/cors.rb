@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://congress-votes-react.herokuapp.com/home'
+    origins 'https://congress-votes-react.herokuapp.com'
 
     resource '*',
       headers: :any,
